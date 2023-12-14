@@ -16,13 +16,15 @@ export class LoginSteps {
     }
 
     async validateMainElements(): Promise<void> {
-         test.step("validate main elements in page", async () => {
-            await this.loginPage.waitForLoginPageHeader();
+        test.step("validate main elements in page", async () => {
+            await this.loginPage.page.waitForLoadState( "load" );
+                await this.loginPage.waitForLoginPageHeader();
       //      await this.loginPage.waitForUsernameInput();
       //      await this.loginPage.waitForPasswordInput();
             await expect(this.loginPage.loginPageHeader).toBeVisible();
             await expect(this.loginPage.usernameInput).toBeEnabled();
             await expect(this.loginPage.passwordInput).toBeEnabled();
+            await expect(this.loginPage.goToRegisterEnglishLink).toBeEnabled();
         })
     }
 }
