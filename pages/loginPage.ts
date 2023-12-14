@@ -17,7 +17,7 @@ export class LoginPage {
     }
 
     async waitForLoginPageHeader(): Promise<void> {
-        await this.page.waitForSelector("//div[@class='app-main-header']", { state: "visible"});
+        await this.page.waitForSelector("//div[@class='app-main-header']", { state: "attached"});
     }
 
 }
