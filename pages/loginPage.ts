@@ -21,20 +21,11 @@ export class LoginPage {
 
 
     async waitForLoginPageHeader(): Promise<void> {
-        await this.page.waitForSelector("//div[@class='app-main-header']", { state: "visible" });
-    }
-    /*
-    get loginPageHeader(): Locator {
-        return this.page.locator("//div[@class='app-main-header']");
-    }
-
-
-    get passwordInput(): Locator {
-        return
-    }
-
-    async waitForLoginPageHeader(): Promise<void> {
         await this.page.waitForSelector("//div[@class='app-main-header']", { state: "attached" });
+    }
+
+    async waitForGoToRegisterEnglishLink(): Promise<void> {
+        await this.page.waitForSelector("//*[text()='Click here to register']/parent::a", { state: "attached" });
     }
 
     async waitForUsernameInput(): Promise<void> {
@@ -44,6 +35,4 @@ export class LoginPage {
     async waitForPasswordInput(): Promise<void> {
         await this.page.waitForSelector("//input[@id='password']", { state: "attached"   });
     }
-
-     */
 }

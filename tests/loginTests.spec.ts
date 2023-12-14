@@ -9,5 +9,6 @@ test('validate main elements', async ({ page }) => {
   const loginSteps = new LoginSteps(page);
 
   await loginSteps.waitForUrl();
-  await loginSteps.validateMainElements();
+  loginSteps.validateMainElements();
+  await loginSteps.clickOnRegisterLink();
 });
