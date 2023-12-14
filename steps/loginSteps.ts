@@ -18,7 +18,11 @@ export class LoginSteps {
     async validateMainElements(): Promise<void> {
          test.step("validate main elements in page", async () => {
             await this.loginPage.waitForLoginPageHeader();
+            await this.loginPage.waitForUsernameInput();
+            await this.loginPage.waitForPasswordInput();
             expect(this.loginPage.loginPageHeader.isVisible()).toBeTruthy();
+            expect(this.loginPage.usernameInput.isVisible()).toBeTruthy();
+            expect(this.loginPage.passwordInput.isVisible()).toBeTruthy();
         })
     }
 }
