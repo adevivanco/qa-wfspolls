@@ -1,5 +1,5 @@
 import {expect, Page, test} from "@playwright/test";
-import {RegisterPage} from "../pages/registerPage";
+import {RegisterPage} from "../pom/pages/registerPage";
 
 export class RegisterSteps {
 

@@ -1,5 +1,5 @@
 import {expect, Page, test} from "@playwright/test";
-import {LoginPage} from "../pages/loginPage";
+import {LoginPage} from "../pom/pages/loginPage";
 
 export class LoginSteps {
 
