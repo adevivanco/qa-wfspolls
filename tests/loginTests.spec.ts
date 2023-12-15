@@ -22,3 +22,12 @@ test('validate main elements and navigate to registration page', async ({ page }
   await loginSteps.clickOnRegisterLink();
   await registerSteps.waitForUrl();
 });
+test('validate main elements and login using valid credentials', async ({ page }) => {
+  const loginSteps = new LoginSteps(page);
+  const registerSteps:RegisterSteps = new RegisterSteps(page);
+
+  await loginSteps.waitForUrl();
+  await loginSteps.validateMainElements();
+  await loginSteps.enterUsernameAndPassword('andydv', 'Test1234');
+  await loginSteps.clickLogInButton();
+});
