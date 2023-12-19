@@ -9,9 +9,9 @@ export class RegisterSteps {
         this.registerPage = new RegisterPage(page);
     }
 
-    async waitForUrl(): Promise<void> {
-        test.step("wait for Login Page URL", async () => {
-            await this.registerPage.waitForUrl();
+    async waitForUrl(baseUrl: string): Promise<void> {
+        await test.step("wait for Login Page URL", async () => {
+            await this.registerPage.waitForUrl(baseUrl);
         })
     }
 

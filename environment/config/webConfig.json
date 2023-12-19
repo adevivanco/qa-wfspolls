@@ -1,27 +1,22 @@
 {
   "envs": [
     {
+      "local": {
+        "BASE_URL": "http://localhost:8888",
+        "USERNAME": "andydv",
+        "USER_PASSWORD": "Test1234"
+      }
+    },
+    {
       "staging": {
-        "id": "c29e3ee4b23342db8afdab4c826ab478",
-        "name": "Example",
-        "hostnames": [
-          "example.com"
-        ],
-        "shortcode": "example",
-        "lickstatsUrl": "https://theregs.co/example",
-        "pin": "1234"
+        "USERNAME": "andydv",
+        "USER_PASSWORD": "Test1234"
       }
     },
     {
       "qa": {
-        "id": "c29e3ee4b23342db8afdab4c826ab478",
-        "name": "Example",
-        "hostnames": [
-          "example.com"
-        ],
-        "shortcode": "exampleQA",
-        "lickstatsUrl": "https://theregs.co/example",
-        "pin": "12333334"
+        "USERNAME": "andydv",
+        "USER_PASSWORD": "Test1234"
       }
     }
   ]

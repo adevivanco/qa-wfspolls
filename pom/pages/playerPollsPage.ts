@@ -9,10 +9,9 @@ export class PlayerPollsPage {
         this.manageMyPollsHeader = this.page.locator("//span[contains(text(),'Manage my polls')]");
     }
 
-    async waitForUrl(): Promise<void> {
-        await this.page.waitForURL("http://localhost:8888/player-polls");
+    async waitForUrl(baseUrl: string): Promise<void> {
+        await this.page.waitForURL(`${baseUrl}/player-polls`);
     }
-
 
     async waitForManageMyPollsHeader(): Promise<void> {
         await this.page.waitForSelector("//span[contains(text(),'Manage my polls')]", { state: "attached" });

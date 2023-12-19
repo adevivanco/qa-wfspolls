@@ -17,8 +17,8 @@ export class LoginPage {
         this.goToRegisterEnglishLink = this.page.locator("//*[text()='Click here to register']/parent::a")
     }
 
-    async waitForUrl(): Promise<void> {
-        await this.page.waitForURL("http://localhost:8888/login");
+    async waitForUrl(baseUrl: string): Promise<void> {
+        await this.page.waitForURL(`${baseUrl}/login`);
     }
 
 

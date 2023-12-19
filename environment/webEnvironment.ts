@@ -1,6 +1,9 @@
 import * as fs from 'fs';
 
 interface Env {
+    BASE_URL: string,
+    USERNAME: string,
+    USER_PASSWORD: string,
     id: string;
     name: string;
     hostnames: string[];
@@ -17,7 +20,7 @@ interface Config {
     envs: Envs[];
 }
 
-type EnvironmentKey = 'qa' | 'staging';
+type EnvironmentKey = 'local' | 'qa' | 'staging';
 
 function parseConfigFile(filePath: string): Env | undefined {
     try {
@@ -49,10 +52,5 @@ function parseConfigFile(filePath: string): Env | undefined {
 // Example usage with a separate JSON file
 const jsonFilePath = 'environment/config/webConfig.json';
 const webEnvironment = parseConfigFile(jsonFilePath);
-
-// Accessing properties using dot notation if the environment is defined
-if (webEnvironment) {
-    console.log('Environment Shortcode:', webEnvironment.shortcode);
-}
 
 export default webEnvironment;

@@ -9,9 +9,9 @@ export class PlayerPollsSteps {
         this.playerPollsPage = new PlayerPollsPage(page);
     }
 
-    async waitForUrl(): Promise<void> {
-        test.step("wait for Player Polls Page URL", async () => {
-            await this.playerPollsPage.waitForUrl();
+    async waitForUrl(baseUrl: string): Promise<void> {
+        await test.step("wait for Player Polls Page URL", async () => {
+            await this.playerPollsPage.waitForUrl(baseUrl);
         })
     }
 

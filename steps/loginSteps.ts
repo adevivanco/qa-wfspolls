@@ -9,9 +9,9 @@ export class LoginSteps {
         this.loginPage = new LoginPage(page);
     }
 
-    async waitForUrl(): Promise<void> {
-        test.step("wait for Login Page URL", async () => {
-            await this.loginPage.waitForUrl();
+    async waitForUrl(baseUrl: string): Promise<void> {
+        await test.step("wait for Login Page URL", async () => {
+            await this.loginPage.waitForUrl(baseUrl);
         })
     }
 
