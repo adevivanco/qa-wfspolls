@@ -3,12 +3,16 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "web:qa": "cross-env ENVIRONMENT_KEY=qa npx playwright test",
+    "build": "cross-env ENVIRONMENT_KEY=production node buildScript.js"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@playwright/test": "^1.40.1",
-    "@types/node": "^20.10.4"
+    "@types/node": "^20.10.4",
+    "cross-env": "^7.0.3"
   }
 }

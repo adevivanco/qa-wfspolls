@@ -1,26 +1,28 @@
-[
-  {
-    "staging": {
-      "id": "c29e3ee4b23342db8afdab4c826ab478",
-      "name": "Example",
-      "hostnames": [
-        "example.com"
-      ],
-      "shortcode": "example",
-      "lickstatsUrl": "https://theregs.co/example",
-      "pin": "1234"
+{
+  "envs": [
+    {
+      "staging": {
+        "id": "c29e3ee4b23342db8afdab4c826ab478",
+        "name": "Example",
+        "hostnames": [
+          "example.com"
+        ],
+        "shortcode": "example",
+        "lickstatsUrl": "https://theregs.co/example",
+        "pin": "1234"
+      }
+    },
+    {
+      "qa": {
+        "id": "c29e3ee4b23342db8afdab4c826ab478",
+        "name": "Example",
+        "hostnames": [
+          "example.com"
+        ],
+        "shortcode": "exampleQA",
+        "lickstatsUrl": "https://theregs.co/example",
+        "pin": "12333334"
+      }
     }
-  },
-  {
-    "qa": {
-      "id": "c29e3ee4b23342db8afdab4c826ab478",
-      "name": "Example",
-      "hostnames": [
-        "example.com"
-      ],
-      "shortcode": "example",
-      "lickstatsUrl": "https://theregs.co/example",
-      "pin": "12333334"
-    }
-  }
-]
+  ]
+}
