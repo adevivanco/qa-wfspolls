@@ -2,9 +2,10 @@ import { test, expect } from '@playwright/test';
 import { LoginSteps } from "../steps/loginSteps";
 import { RegisterSteps } from "../steps/registerSteps";
 import { PlayerPollsSteps } from "../steps/playerPollsSteps";
-
+import { venues } from "../environment/webEnvironment";
 test.beforeEach(async ({ page }) => {
   await page.goto('http://localhost:8888/login');
+  console.log(venues)
 });
 
 test('validate main elements', async ({ page }) => {
