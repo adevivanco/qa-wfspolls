@@ -1,4 +1,4 @@
-import { defineConfig, devices } from '@playwright/test';
+import {devices, PlaywrightTestConfig} from '@playwright/test';
 
 /**
  * Read environment variables from file.
@@ -9,8 +9,15 @@ import { defineConfig, devices } from '@playwright/test';
 /**
  * See https://playwright.dev/docs/test-configuration.
  */
-export default defineConfig({
-  testDir: './tests',
+const getTestDirectory = (): string => {
+   // Default to 'tests' if environment variable is not set
+  return process.env.TEST_DIR == undefined ? '../../../packages/web/tests' : process.env.TEST_DIR;
+}
+
+//console.log(getTestDirectory());
+
+const playwrightTestConfig: PlaywrightTestConfig = {
+  testDir: getTestDirectory(),
   /* Run tests in files in parallel */
   fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
@@ -76,4 +83,6 @@ export default defineConfig({
   //   reuseExistingServer: !process.env.CI,
   // },
 
-});
+}
+
+export default playwrightTestConfig;

@@ -50,7 +50,7 @@ function parseEnvironmentFile(filePath: string): Env | undefined {
 }
 
 // Example usage with a separate JSON file
-const jsonFilePath = 'environment/config/webEnvironment.json';
+const jsonFilePath = 'packages/web/environment/webEnvironment.json';
 const webEnvironment = parseEnvironmentFile(jsonFilePath);
 
 export default webEnvironment;
