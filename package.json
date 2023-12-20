@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "web:local": "cross-env ENVIRONMENT_KEY=local npx playwright test --config packages/web/config/web.config.ts",
+    "web:local": "cross-env ENVIRONMENT_KEY=local TEST_DIR=packages/web/tests npx playwright test --config packages/web/config/web.config.ts",
     "web:qa": "cross-env ENVIRONMENT_KEY=qa npx playwright test",
     "build": "cross-env ENVIRONMENT_KEY=production node buildScript.js"
   },

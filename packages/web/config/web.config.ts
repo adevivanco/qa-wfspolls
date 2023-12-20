@@ -1,5 +1,5 @@
 import {devices, PlaywrightTestConfig} from '@playwright/test';
-
+import * as path from 'path';
 /**
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
@@ -9,12 +9,18 @@ import {devices, PlaywrightTestConfig} from '@playwright/test';
 /**
  * See https://playwright.dev/docs/test-configuration.
  */
+function getProjectRoot(): string {
+  const currentFileDir = __dirname;
+  return path.join(currentFileDir, '../../..');
+}
 const getTestDirectory = (): string => {
    // Default to 'tests' if environment variable is not set
-  return process.env.TEST_DIR == undefined ? '../../../packages/web/tests' : process.env.TEST_DIR;
+  const projectRoot = getProjectRoot();
+  const testsSubFolder = process.env.TEST_DIR == undefined ? 'packages/web/tests' : process.env.TEST_DIR
+  return `${projectRoot}/${testsSubFolder}`;
 }
 
-//console.log(getTestDirectory());
+console.log(getTestDirectory());
 
 const playwrightTestConfig: PlaywrightTestConfig = {
   testDir: getTestDirectory(),
