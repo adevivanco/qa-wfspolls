@@ -16,16 +16,16 @@ interface Envs {
     [key: string]: Env;
 }
 
-interface Config {
+interface Environments {
     envs: Envs[];
 }
 
 type EnvironmentKey = 'local' | 'qa' | 'staging';
 
-function parseConfigFile(filePath: string): Env | undefined {
+function parseEnvironmentFile(filePath: string): Env | undefined {
     try {
         const fileContent = fs.readFileSync(filePath, 'utf-8');
-        const config: Config = JSON.parse(fileContent);
+        const environments: Environments = JSON.parse(fileContent);
 
         // Read the environment key from the environment variable
         const envKey: EnvironmentKey | undefined = process.env.ENVIRONMENT_KEY as EnvironmentKey | undefined;
@@ -35,7 +35,7 @@ function parseConfigFile(filePath: string): Env | undefined {
             return undefined;
         }
 
-        const env = config.envs.find((e) => e[envKey]);
+        const env = environments.envs.find((e) => e[envKey]);
 
         if (env) {
             return env[envKey];
@@ -51,6 +51,6 @@ function parseConfigFile(filePath: string): Env | undefined {
 
 // Example usage with a separate JSON file
 const jsonFilePath = 'environment/config/webEnvironment.json';
-const webEnvironment = parseConfigFile(jsonFilePath);
+const webEnvironment = parseEnvironmentFile(jsonFilePath);
 
 export default webEnvironment;
