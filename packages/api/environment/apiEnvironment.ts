@@ -2,6 +2,8 @@ import * as fs from 'fs';
 
 interface Env {
     BASE_URL: string,
+    ADMIN: string,
+    ADMIN_PASSWORD: string,
     USERNAME: string,
     USER_PASSWORD: string
 }
@@ -44,7 +46,7 @@ function parseEnvironmentFile(filePath: string): Env | undefined {
 }
 
 // Example usage with a separate JSON file
-const jsonFilePath = 'packages/web/environment/webEnvironment.json';
-const webEnvironment = parseEnvironmentFile(jsonFilePath);
+const jsonFilePath = 'packages/api/environment/apiEnvironment.json';
+const apiEnvironment = parseEnvironmentFile(jsonFilePath);
 
-export default webEnvironment;
+export default apiEnvironment;

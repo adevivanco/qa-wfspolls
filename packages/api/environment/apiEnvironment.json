@@ -1,0 +1,25 @@
+{
+  "envs": [
+    {
+      "local": {
+        "BASE_URL": "http://localhost:3335",
+        "ADMIN": "ninjadelcodigo@gmail.com",
+        "ADMIN_PASSWORD": "emili2K22!",
+        "USERNAME": "andydv",
+        "USER_PASSWORD": "Test1234"
+      }
+    },
+    {
+      "staging": {
+        "USERNAME": "andydv",
+        "USER_PASSWORD": "Test1234"
+      }
+    },
+    {
+      "qa": {
+        "USERNAME": "andydv",
+        "USER_PASSWORD": "Test1234"
+      }
+    }
+  ]
+}
