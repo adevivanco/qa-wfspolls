@@ -1,5 +1,6 @@
 import {test, expect, request, defineConfig, APIRequestContext} from '@playwright/test';
 import  apiEnvironment from "../environment/apiEnvironment";
+import webEnvironment from "../../web/environment/webEnvironment";
 
 let token: string = "";
 let apiContext: APIRequestContext= null;
@@ -21,9 +22,22 @@ test.beforeEach(async () => {
 
     expect(response.ok()).toBeTruthy();
     let body = await response.json();
-    console.log(body);
+
+    token = body.token
 });
 
 test('validate admin authentication', async ({ request }) => {
-   console.log('validate admin auth');
+
+});
+
+test('get template polls', async ({ request }) => {
+    const getTemplatePollResponse = await apiContext.get('/template-polls', {
+        headers: {
+            Authorization: `Bearer ${token}`
+        }
+    });
+    expect(getTemplatePollResponse.ok()).toBeTruthy();
+    let body = await getTemplatePollResponse.json();
+    console.log(body);
+
 });
