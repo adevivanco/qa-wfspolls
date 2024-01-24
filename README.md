@@ -7,6 +7,7 @@ Instructions for Auto video viewer:
 - git clone https://github.com/adevivanco/qa-wfspolls.git
 - cd qa-wfspolls
 - git checkout auto-video-viewer
+- git pull
 - npm install
 - npx playwright install
 
