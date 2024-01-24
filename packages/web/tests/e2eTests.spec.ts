@@ -1,15 +1,15 @@
 import { test, expect } from '@playwright/test';
-import { LoginSteps } from "../steps/loginSteps";
+import { AutoDisplaySteps } from "../steps/autoDisplaySteps";
 import  webEnvironment from "../environment/webEnvironment";
 test.beforeEach(async ({ page }) => {
-  await page.goto(`${webEnvironment.BASE_URL}/login`);
+  await page.goto("https://www.mbhuntington.com/used-vehicles/");
 });
 
-test('validate main elements', async ({ page }) => {
-  const loginSteps = new LoginSteps(page);
+test('video test', async ({ page }) => {
+  const autoDisplaySteps = new AutoDisplaySteps(page);
 
-  await loginSteps.waitForUrl(webEnvironment.BASE_URL);
-  await loginSteps.validateMainElements();
-  await loginSteps.clickOnRegisterLink();
+  await autoDisplaySteps.waitForUrl();
+  await autoDisplaySteps.validateMainElementsAndClick();
+  await autoDisplaySteps.waitForVideoContainerAndClickPhotos();
 });
 
