@@ -1,16 +1,17 @@
-import {Locator, Page} from "@playwright/test";
+import {FrameLocator, Locator, Page} from "@playwright/test";
 
 export class AutoDisplayPage {
     readonly page: Page;
     readonly playVideoLocator: Locator;
     readonly videoContainer: Locator;
-    readonly interiorLocator: Locator;
-
+    readonly photosTab: Locator;
+    readonly initVideoButton: Locator;
     constructor(page: Page) {
         this.page = page;
         this.playVideoLocator = this.page.locator("//img[@class='dvp_infront_open' and @data-vin='W1N4M4HB3NW175360']");
         this.videoContainer = this.page.locator("//html//body/div[@class='InitialContainer']");
-        this.interiorLocator = this.page.locator("//html//body/div[@class='InitialContainer']//span[text()='Interior']")
+        this.photosTab = this.page.frameLocator('#dvp_infront_ifrvideo').getByText("Photos");
+        this.initVideoButton = this.page.frameLocator('#dvp_infront_ifrvideo').getByTitle("Play/Pause video");
     }
 
     async waitForUrl(): Promise<void> {

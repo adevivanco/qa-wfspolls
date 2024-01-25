@@ -24,10 +24,19 @@ export class AutoDisplaySteps {
         });
     }
     async waitForVideoContainerAndClickPhotos(): Promise<void> {
-        await test.step("wait for video container", async () => {
-            await this.autoDisplayPage.page.waitForLoadState("load");
+        await test.step("wait for video container, click photos tab", async () => {
             expect(this.autoDisplayPage.videoContainer.isVisible()).toBeTruthy();
-            await this.autoDisplayPage.page.frameLocator('#dvp_infront_ifrvideo').getByText('Photos').click();
+            await this.autoDisplayPage.photosTab.click();
+            await this.autoDisplayPage.page.waitForTimeout(5000);
+        });
+    }
+
+    async waitForVideoContainerAndClickPlayVideo(): Promise<void> {
+        await test.step("wait for video container, click play video", async () => {
+            expect(this.autoDisplayPage.videoContainer.isVisible()).toBeTruthy();
+            await this.autoDisplayPage.page.frameLocator('#dvp_infront_ifrvideo').getByText('Live Video').click();
+            // todo: figure out iframe on top
+          //  await  this.autoDisplayPage.page.frameLocator('iframe[title="null \\#4"]').frameLocator('#ifrContainer').locator('#init').click();
             await this.autoDisplayPage.page.waitForTimeout(5000);
         });
     }
