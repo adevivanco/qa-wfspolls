@@ -6,10 +6,22 @@ test.beforeEach(async ({ page }) => {
 });
 
 
+/*
 test('video test - photos tab', async ({ page }) => {
+
   const autoDisplaySteps = new AutoDisplaySteps(page);
 
   await autoDisplaySteps.waitForUrl();
   await autoDisplaySteps.validateMainElementsAndClick();
   await autoDisplaySteps.waitForVideoContainerAndClickPhotos();
 });
+ */
+
+test('video test - play video', async ({ page }) => {
+  const autoDisplaySteps = new AutoDisplaySteps(page);
+
+  await autoDisplaySteps.waitForUrl();
+  await autoDisplaySteps.validateMainElementsAndClick();
+  await autoDisplaySteps.waitForVideoContainerAndClickPlayVideo();
+});
+

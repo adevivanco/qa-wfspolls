@@ -34,10 +34,18 @@ export class AutoDisplaySteps {
     async waitForVideoContainerAndClickPlayVideo(): Promise<void> {
         await test.step("wait for video container, click play video", async () => {
             expect(this.autoDisplayPage.videoContainer.isVisible()).toBeTruthy();
-            await this.autoDisplayPage.page.frameLocator('#dvp_infront_ifrvideo').getByText('Live Video').click();
-            // todo: figure out iframe on top
-          //  await  this.autoDisplayPage.page.frameLocator('iframe[title="null \\#4"]').frameLocator('#ifrContainer').locator('#init').click();
+            let myFrames = this.autoDisplayPage.page.frames();
+            console.log("#frames: " + myFrames.length)
+            myFrames.map((f) => console.log(f.name()));
+
+            await this.autoDisplayPage.page.frameLocator('#dvp_infront_ifrvideo').getByText('Video').click();
             await this.autoDisplayPage.page.waitForTimeout(5000);
+            // todo: figure out iframe on top
+             myFrames = this.autoDisplayPage.page.frames();
+            console.log("#frames: " + myFrames.length)
+            myFrames.map((f) => console.log(f.name()));
+            await  this.autoDisplayPage.page.frameLocator('#dvp_infront_ifrvideo').frameLocator('#ifrContainer').locator('#init').click();
+            await this.autoDisplayPage.page.waitForTimeout(45000);
         });
     }
 

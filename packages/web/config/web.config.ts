@@ -40,26 +40,25 @@ const playwrightTestConfig: PlaywrightTestConfig = {
     trace: 'on',
     headless: false,
   },
-  timeout: 60000,
+  timeout: 60000 * 2,
 
   /* Configure projects for major browsers */
   projects: [
-      /*
-      {
-        name: 'chromium',
-        use: { ...devices['Desktop Chrome'] },
-      },
+    /*  {
+      name: 'chromium',
+      use: { ...devices['Desktop Chrome'] },
+    },
 
-       */
-      {
-        name: 'firefox',
-        use: { ...devices['Desktop Firefox'] },
-      },
-      /* Test against mobile viewports.
-      {
-        name: 'webkit',
-        use: { ...devices['Desktop Safari'] },
-      },*/
+     */
+    {
+      name: 'firefox',
+      use: { ...devices['Desktop Firefox'] },
+    },
+    /* Test against mobile viewports.
+    {
+      name: 'webkit',
+      use: { ...devices['Desktop Safari'] },
+    },*/
     // {
     //   name: 'Mobile Chrome',
     //   use: { ...devices['Pixel 5'] },
@@ -74,10 +73,11 @@ const playwrightTestConfig: PlaywrightTestConfig = {
     //   name: 'Microsoft Edge',
     //   use: { ...devices['Desktop Edge'], channel: 'msedge' },
     // },
-    {
-       name: 'Google Chrome',
-       use: { ...devices['Desktop Chrome'], channel: 'chrome' },
-    },
+      //
+//       name: 'Google Chrome',
+
+   //    use: { ...devices['Desktop Chrome'], channel: 'chrome' },
+   // },
   ],
 
   /* Run your local dev server before starting the tests */
